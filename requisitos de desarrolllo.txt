@@ -1,0 +1,12 @@
+Reqisitos de desarrollo :
+
+VisualSVN 
+https://www.visualsvn.com/
+TortoiseSVN
+https://tortoisesvn.net/downloads.html
+
+VS2010
+SQLServer 2008
+IIS
+
+https://github.com/CMPedroA/SCA_DepCultura.git
