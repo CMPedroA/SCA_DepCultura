@@ -1,10 +1,8 @@
 *Reqisitos de desarrollo :
-
-VisualSVN 
-https://www.visualsvn.com/
 TortoiseSVN
 https://tortoisesvn.net/downloads.html
 
+Pendientes por definir
 VS2010
 SQLServer 2008
 IIS
