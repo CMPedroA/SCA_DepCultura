@@ -1,4 +1,4 @@
-Reqisitos de desarrollo :
+*Reqisitos de desarrollo :
 
 VisualSVN 
 https://www.visualsvn.com/
