@@ -1,0 +1,11 @@
+Tabla: Users
+Pk	idUser		int
+	userName	varchar
+	password	varchar	
+Fk	permission	int
+	HigthDate	datetime
+
+Tabla: Permission
+Pk	idPermission 	int
+	Name		varchar
+	Description	varchar
