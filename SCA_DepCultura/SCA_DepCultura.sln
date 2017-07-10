@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCA_DepCultura", "SCA_DepCultura\SCA_DepCultura.csproj", "{9E641AF1-6CC8-45D6-A355-0308D1773503}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{9EA44D9B-5A1D-432F-8205-EA657C9FC3E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BussinessLogicLayer", "BussinessLogicLayer\BussinessLogicLayer.csproj", "{23D3653A-38FD-446B-A240-D8235B44D1D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E641AF1-6CC8-45D6-A355-0308D1773503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E641AF1-6CC8-45D6-A355-0308D1773503}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E641AF1-6CC8-45D6-A355-0308D1773503}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E641AF1-6CC8-45D6-A355-0308D1773503}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EA44D9B-5A1D-432F-8205-EA657C9FC3E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EA44D9B-5A1D-432F-8205-EA657C9FC3E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EA44D9B-5A1D-432F-8205-EA657C9FC3E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EA44D9B-5A1D-432F-8205-EA657C9FC3E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23D3653A-38FD-446B-A240-D8235B44D1D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D3653A-38FD-446B-A240-D8235B44D1D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D3653A-38FD-446B-A240-D8235B44D1D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D3653A-38FD-446B-A240-D8235B44D1D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

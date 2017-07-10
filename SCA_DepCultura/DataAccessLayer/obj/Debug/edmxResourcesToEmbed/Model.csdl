@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SCA_DepCulturaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="SCA_DepCulturaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Permission" EntityType="SCA_DepCulturaModel.Permission" />
+    <EntitySet Name="Users" EntityType="SCA_DepCulturaModel.Users" />
+    <AssociationSet Name="FK_User_Permission" Association="SCA_DepCulturaModel.FK_User_Permission">
+      <End Role="Permission" EntitySet="Permission" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="idPermission" />
+    </Key>
+    <Property Type="Int32" Name="idPermission" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Users" Relationship="SCA_DepCulturaModel.FK_User_Permission" FromRole="Permission" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Type="Int32" Name="idUser" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="userName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="permission" Nullable="false" />
+    <Property Type="DateTime" Name="HigthDate" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="secondName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="surname" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="secondSurname" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Permission1" Relationship="SCA_DepCulturaModel.FK_User_Permission" FromRole="Users" ToRole="Permission" />
+  </EntityType>
+  <Association Name="FK_User_Permission">
+    <End Type="SCA_DepCulturaModel.Permission" Role="Permission" Multiplicity="1" />
+    <End Type="SCA_DepCulturaModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="idPermission" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="permission" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

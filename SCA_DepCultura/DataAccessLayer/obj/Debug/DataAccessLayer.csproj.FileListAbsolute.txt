@@ -1,0 +1,5 @@
+C:\Users\PEDRO\Desktop\SCA_Cultura\trunk\SCA_DepCultura\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\PEDRO\Desktop\SCA_Cultura\trunk\SCA_DepCultura\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\PEDRO\Desktop\SCA_Cultura\trunk\SCA_DepCultura\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\PEDRO\Desktop\SCA_Cultura\trunk\SCA_DepCultura\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\PEDRO\Desktop\SCA_Cultura\trunk\SCA_DepCultura\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SCA_DepCulturaModelStoreContainer" CdmEntityContainer="SCA_DepCulturaEntities">
+    <EntitySetMapping Name="Permission">
+      <EntityTypeMapping TypeName="SCA_DepCulturaModel.Permission">
+        <MappingFragment StoreEntitySet="Permission">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="idPermission" ColumnName="idPermission" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="SCA_DepCulturaModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="secondSurname" ColumnName="secondSurname" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="secondName" ColumnName="secondName" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="HigthDate" ColumnName="HigthDate" />
+          <ScalarProperty Name="permission" ColumnName="permission" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
