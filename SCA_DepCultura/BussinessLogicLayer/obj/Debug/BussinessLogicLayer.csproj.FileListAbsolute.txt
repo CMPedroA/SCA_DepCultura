@@ -1,7 +1,7 @@
+C:\Users\PEDRO\Desktop\SCA_Cultura\trunk\SCA_DepCultura\BussinessLogicLayer\obj\Debug\BussinessLogicLayer.csprojResolveAssemblyReference.cache
 C:\Users\PEDRO\Desktop\SCA_Cultura\trunk\SCA_DepCultura\BussinessLogicLayer\bin\Debug\BussinessLogicLayer.dll
 C:\Users\PEDRO\Desktop\SCA_Cultura\trunk\SCA_DepCultura\BussinessLogicLayer\bin\Debug\BussinessLogicLayer.pdb
 C:\Users\PEDRO\Desktop\SCA_Cultura\trunk\SCA_DepCultura\BussinessLogicLayer\bin\Debug\DataAccessLayer.dll
 C:\Users\PEDRO\Desktop\SCA_Cultura\trunk\SCA_DepCultura\BussinessLogicLayer\bin\Debug\DataAccessLayer.pdb
-C:\Users\PEDRO\Desktop\SCA_Cultura\trunk\SCA_DepCultura\BussinessLogicLayer\obj\Debug\BussinessLogicLayer.csprojResolveAssemblyReference.cache
 C:\Users\PEDRO\Desktop\SCA_Cultura\trunk\SCA_DepCultura\BussinessLogicLayer\obj\Debug\BussinessLogicLayer.dll
 C:\Users\PEDRO\Desktop\SCA_Cultura\trunk\SCA_DepCultura\BussinessLogicLayer\obj\Debug\BussinessLogicLayer.pdb

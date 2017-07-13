@@ -19,7 +19,9 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region Metadatos de relaciones en EDM
 
-[assembly: EdmRelationshipAttribute("SCA_DepCulturaModel", "FK_User_Permission", "Permission", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataAccessLayer.Permission), "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccessLayer.Users), true)]
+[assembly: EdmRelationshipAttribute("SCA_DepCulturaModel", "FK_PageRol_Page", "Page", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataAccessLayer.Page), "PageRol", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccessLayer.PageRol), true)]
+[assembly: EdmRelationshipAttribute("SCA_DepCulturaModel", "FK_PageRol_Roles", "Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataAccessLayer.Roles), "PageRol", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccessLayer.PageRol), true)]
+[assembly: EdmRelationshipAttribute("SCA_DepCulturaModel", "FK_User_Roles", "Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DataAccessLayer.Roles), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DataAccessLayer.User), true)]
 
 #endregion
 
@@ -74,53 +76,101 @@ namespace DataAccessLayer
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        public ObjectSet<Permission> Permission
+        public ObjectSet<Page> Page
         {
             get
             {
-                if ((_Permission == null))
+                if ((_Page == null))
                 {
-                    _Permission = base.CreateObjectSet<Permission>("Permission");
+                    _Page = base.CreateObjectSet<Page>("Page");
                 }
-                return _Permission;
+                return _Page;
             }
         }
-        private ObjectSet<Permission> _Permission;
+        private ObjectSet<Page> _Page;
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        public ObjectSet<Users> Users
+        public ObjectSet<PageRol> PageRol
         {
             get
             {
-                if ((_Users == null))
+                if ((_PageRol == null))
                 {
-                    _Users = base.CreateObjectSet<Users>("Users");
+                    _PageRol = base.CreateObjectSet<PageRol>("PageRol");
                 }
-                return _Users;
+                return _PageRol;
             }
         }
-        private ObjectSet<Users> _Users;
+        private ObjectSet<PageRol> _PageRol;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<Roles> Roles
+        {
+            get
+            {
+                if ((_Roles == null))
+                {
+                    _Roles = base.CreateObjectSet<Roles>("Roles");
+                }
+                return _Roles;
+            }
+        }
+        private ObjectSet<Roles> _Roles;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<User> User
+        {
+            get
+            {
+                if ((_User == null))
+                {
+                    _User = base.CreateObjectSet<User>("User");
+                }
+                return _User;
+            }
+        }
+        private ObjectSet<User> _User;
 
         #endregion
 
         #region Métodos AddTo
     
         /// <summary>
-        /// Método desusado para agregar un nuevo objeto al EntitySet Permission. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// Método desusado para agregar un nuevo objeto al EntitySet Page. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
         /// </summary>
-        public void AddToPermission(Permission permission)
+        public void AddToPage(Page page)
         {
-            base.AddObject("Permission", permission);
+            base.AddObject("Page", page);
         }
     
         /// <summary>
-        /// Método desusado para agregar un nuevo objeto al EntitySet Users. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// Método desusado para agregar un nuevo objeto al EntitySet PageRol. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
         /// </summary>
-        public void AddToUsers(Users users)
+        public void AddToPageRol(PageRol pageRol)
         {
-            base.AddObject("Users", users);
+            base.AddObject("PageRol", pageRol);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet Roles. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToRoles(Roles roles)
+        {
+            base.AddObject("Roles", roles);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet User. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToUser(User user)
+        {
+            base.AddObject("User", user);
         }
 
         #endregion
@@ -134,26 +184,28 @@ namespace DataAccessLayer
     /// <summary>
     /// No hay documentación de metadatos disponible.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="SCA_DepCulturaModel", Name="Permission")]
+    [EdmEntityTypeAttribute(NamespaceName="SCA_DepCulturaModel", Name="Page")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Permission : EntityObject
+    public partial class Page : EntityObject
     {
         #region Método de generador
     
         /// <summary>
-        /// Crear un nuevo objeto Permission.
+        /// Crear un nuevo objeto Page.
         /// </summary>
-        /// <param name="idPermission">Valor inicial de la propiedad idPermission.</param>
-        /// <param name="name">Valor inicial de la propiedad Name.</param>
-        /// <param name="description">Valor inicial de la propiedad Description.</param>
-        public static Permission CreatePermission(global::System.Int32 idPermission, global::System.String name, global::System.String description)
+        /// <param name="idPage">Valor inicial de la propiedad idPage.</param>
+        /// <param name="name">Valor inicial de la propiedad name.</param>
+        /// <param name="url">Valor inicial de la propiedad url.</param>
+        /// <param name="codeKey">Valor inicial de la propiedad codeKey.</param>
+        public static Page CreatePage(global::System.Int32 idPage, global::System.String name, global::System.String url, global::System.String codeKey)
         {
-            Permission permission = new Permission();
-            permission.idPermission = idPermission;
-            permission.Name = name;
-            permission.Description = description;
-            return permission;
+            Page page = new Page();
+            page.idPage = idPage;
+            page.name = name;
+            page.url = url;
+            page.codeKey = codeKey;
+            return page;
         }
 
         #endregion
@@ -165,27 +217,375 @@ namespace DataAccessLayer
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 idPermission
+        public global::System.Int32 idPage
         {
             get
             {
-                return _idPermission;
+                return _idPage;
             }
             set
             {
-                if (_idPermission != value)
+                if (_idPage != value)
                 {
-                    OnidPermissionChanging(value);
-                    ReportPropertyChanging("idPermission");
-                    _idPermission = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("idPermission");
-                    OnidPermissionChanged();
+                    OnidPageChanging(value);
+                    ReportPropertyChanging("idPage");
+                    _idPage = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idPage");
+                    OnidPageChanged();
                 }
             }
         }
-        private global::System.Int32 _idPermission;
-        partial void OnidPermissionChanging(global::System.Int32 value);
-        partial void OnidPermissionChanged();
+        private global::System.Int32 _idPage;
+        partial void OnidPageChanging(global::System.Int32 value);
+        partial void OnidPageChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String url
+        {
+            get
+            {
+                return _url;
+            }
+            set
+            {
+                OnurlChanging(value);
+                ReportPropertyChanging("url");
+                _url = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("url");
+                OnurlChanged();
+            }
+        }
+        private global::System.String _url;
+        partial void OnurlChanging(global::System.String value);
+        partial void OnurlChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String codeKey
+        {
+            get
+            {
+                return _codeKey;
+            }
+            set
+            {
+                OncodeKeyChanging(value);
+                ReportPropertyChanging("codeKey");
+                _codeKey = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("codeKey");
+                OncodeKeyChanged();
+            }
+        }
+        private global::System.String _codeKey;
+        partial void OncodeKeyChanging(global::System.String value);
+        partial void OncodeKeyChanged();
+
+        #endregion
+
+    
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SCA_DepCulturaModel", "FK_PageRol_Page", "PageRol")]
+        public EntityCollection<PageRol> PageRol
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PageRol>("SCA_DepCulturaModel.FK_PageRol_Page", "PageRol");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PageRol>("SCA_DepCulturaModel.FK_PageRol_Page", "PageRol", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SCA_DepCulturaModel", Name="PageRol")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PageRol : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto PageRol.
+        /// </summary>
+        /// <param name="idPageRol">Valor inicial de la propiedad idPageRol.</param>
+        /// <param name="idRol">Valor inicial de la propiedad idRol.</param>
+        /// <param name="idPage">Valor inicial de la propiedad idPage.</param>
+        public static PageRol CreatePageRol(global::System.Int32 idPageRol, global::System.Int32 idRol, global::System.Int32 idPage)
+        {
+            PageRol pageRol = new PageRol();
+            pageRol.idPageRol = idPageRol;
+            pageRol.idRol = idRol;
+            pageRol.idPage = idPage;
+            return pageRol;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idPageRol
+        {
+            get
+            {
+                return _idPageRol;
+            }
+            set
+            {
+                if (_idPageRol != value)
+                {
+                    OnidPageRolChanging(value);
+                    ReportPropertyChanging("idPageRol");
+                    _idPageRol = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idPageRol");
+                    OnidPageRolChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idPageRol;
+        partial void OnidPageRolChanging(global::System.Int32 value);
+        partial void OnidPageRolChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idRol
+        {
+            get
+            {
+                return _idRol;
+            }
+            set
+            {
+                OnidRolChanging(value);
+                ReportPropertyChanging("idRol");
+                _idRol = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idRol");
+                OnidRolChanged();
+            }
+        }
+        private global::System.Int32 _idRol;
+        partial void OnidRolChanging(global::System.Int32 value);
+        partial void OnidRolChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idPage
+        {
+            get
+            {
+                return _idPage;
+            }
+            set
+            {
+                OnidPageChanging(value);
+                ReportPropertyChanging("idPage");
+                _idPage = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idPage");
+                OnidPageChanged();
+            }
+        }
+        private global::System.Int32 _idPage;
+        partial void OnidPageChanging(global::System.Int32 value);
+        partial void OnidPageChanged();
+
+        #endregion
+
+    
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SCA_DepCulturaModel", "FK_PageRol_Page", "Page")]
+        public Page Page
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Page>("SCA_DepCulturaModel.FK_PageRol_Page", "Page").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Page>("SCA_DepCulturaModel.FK_PageRol_Page", "Page").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Page> PageReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Page>("SCA_DepCulturaModel.FK_PageRol_Page", "Page");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Page>("SCA_DepCulturaModel.FK_PageRol_Page", "Page", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SCA_DepCulturaModel", "FK_PageRol_Roles", "Roles")]
+        public Roles Roles
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Roles>("SCA_DepCulturaModel.FK_PageRol_Roles", "Roles").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Roles>("SCA_DepCulturaModel.FK_PageRol_Roles", "Roles").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Roles> RolesReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Roles>("SCA_DepCulturaModel.FK_PageRol_Roles", "Roles");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Roles>("SCA_DepCulturaModel.FK_PageRol_Roles", "Roles", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SCA_DepCulturaModel", Name="Roles")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Roles : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto Roles.
+        /// </summary>
+        /// <param name="idRol">Valor inicial de la propiedad idRol.</param>
+        /// <param name="name">Valor inicial de la propiedad Name.</param>
+        /// <param name="description">Valor inicial de la propiedad Description.</param>
+        public static Roles CreateRoles(global::System.Int32 idRol, global::System.String name, global::System.String description)
+        {
+            Roles roles = new Roles();
+            roles.idRol = idRol;
+            roles.Name = name;
+            roles.Description = description;
+            return roles;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idRol
+        {
+            get
+            {
+                return _idRol;
+            }
+            set
+            {
+                if (_idRol != value)
+                {
+                    OnidRolChanging(value);
+                    ReportPropertyChanging("idRol");
+                    _idRol = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idRol");
+                    OnidRolChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idRol;
+        partial void OnidRolChanging(global::System.Int32 value);
+        partial void OnidRolChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -246,18 +646,40 @@ namespace DataAccessLayer
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SCA_DepCulturaModel", "FK_User_Permission", "Users")]
-        public EntityCollection<Users> Users
+        [EdmRelationshipNavigationPropertyAttribute("SCA_DepCulturaModel", "FK_PageRol_Roles", "PageRol")]
+        public EntityCollection<PageRol> PageRol
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Users>("SCA_DepCulturaModel.FK_User_Permission", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PageRol>("SCA_DepCulturaModel.FK_PageRol_Roles", "PageRol");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Users>("SCA_DepCulturaModel.FK_User_Permission", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PageRol>("SCA_DepCulturaModel.FK_PageRol_Roles", "PageRol", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SCA_DepCulturaModel", "FK_User_Roles", "User")]
+        public EntityCollection<User> User
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("SCA_DepCulturaModel.FK_User_Roles", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("SCA_DepCulturaModel.FK_User_Roles", "User", value);
                 }
             }
         }
@@ -269,34 +691,36 @@ namespace DataAccessLayer
     /// <summary>
     /// No hay documentación de metadatos disponible.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="SCA_DepCulturaModel", Name="Users")]
+    [EdmEntityTypeAttribute(NamespaceName="SCA_DepCulturaModel", Name="User")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Users : EntityObject
+    public partial class User : EntityObject
     {
         #region Método de generador
     
         /// <summary>
-        /// Crear un nuevo objeto Users.
+        /// Crear un nuevo objeto User.
         /// </summary>
         /// <param name="idUser">Valor inicial de la propiedad idUser.</param>
-        /// <param name="userName">Valor inicial de la propiedad userName.</param>
-        /// <param name="password">Valor inicial de la propiedad password.</param>
-        /// <param name="permission">Valor inicial de la propiedad permission.</param>
-        /// <param name="higthDate">Valor inicial de la propiedad HigthDate.</param>
         /// <param name="name">Valor inicial de la propiedad name.</param>
         /// <param name="secondName">Valor inicial de la propiedad secondName.</param>
-        public static Users CreateUsers(global::System.Int32 idUser, global::System.String userName, global::System.String password, global::System.Int32 permission, global::System.DateTime higthDate, global::System.String name, global::System.String secondName)
+        /// <param name="firstSurname">Valor inicial de la propiedad firstSurname.</param>
+        /// <param name="secondSurname">Valor inicial de la propiedad secondSurname.</param>
+        /// <param name="idRol">Valor inicial de la propiedad idRol.</param>
+        /// <param name="userName">Valor inicial de la propiedad userName.</param>
+        /// <param name="password">Valor inicial de la propiedad password.</param>
+        public static User CreateUser(global::System.Int32 idUser, global::System.String name, global::System.String secondName, global::System.String firstSurname, global::System.String secondSurname, global::System.Int32 idRol, global::System.String userName, global::System.String password)
         {
-            Users users = new Users();
-            users.idUser = idUser;
-            users.userName = userName;
-            users.password = password;
-            users.permission = permission;
-            users.HigthDate = higthDate;
-            users.name = name;
-            users.secondName = secondName;
-            return users;
+            User user = new User();
+            user.idUser = idUser;
+            user.name = name;
+            user.secondName = secondName;
+            user.firstSurname = firstSurname;
+            user.secondSurname = secondSurname;
+            user.idRol = idRol;
+            user.userName = userName;
+            user.password = password;
+            return user;
         }
 
         #endregion
@@ -329,102 +753,6 @@ namespace DataAccessLayer
         private global::System.Int32 _idUser;
         partial void OnidUserChanging(global::System.Int32 value);
         partial void OnidUserChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String userName
-        {
-            get
-            {
-                return _userName;
-            }
-            set
-            {
-                OnuserNameChanging(value);
-                ReportPropertyChanging("userName");
-                _userName = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("userName");
-                OnuserNameChanged();
-            }
-        }
-        private global::System.String _userName;
-        partial void OnuserNameChanging(global::System.String value);
-        partial void OnuserNameChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String password
-        {
-            get
-            {
-                return _password;
-            }
-            set
-            {
-                OnpasswordChanging(value);
-                ReportPropertyChanging("password");
-                _password = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("password");
-                OnpasswordChanged();
-            }
-        }
-        private global::System.String _password;
-        partial void OnpasswordChanging(global::System.String value);
-        partial void OnpasswordChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 permission
-        {
-            get
-            {
-                return _permission;
-            }
-            set
-            {
-                OnpermissionChanging(value);
-                ReportPropertyChanging("permission");
-                _permission = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("permission");
-                OnpermissionChanged();
-            }
-        }
-        private global::System.Int32 _permission;
-        partial void OnpermissionChanging(global::System.Int32 value);
-        partial void OnpermissionChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime HigthDate
-        {
-            get
-            {
-                return _HigthDate;
-            }
-            set
-            {
-                OnHigthDateChanging(value);
-                ReportPropertyChanging("HigthDate");
-                _HigthDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("HigthDate");
-                OnHigthDateChanged();
-            }
-        }
-        private global::System.DateTime _HigthDate;
-        partial void OnHigthDateChanging(global::System.DateTime value);
-        partial void OnHigthDateChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -477,31 +805,31 @@ namespace DataAccessLayer
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String surname
+        public global::System.String firstSurname
         {
             get
             {
-                return _surname;
+                return _firstSurname;
             }
             set
             {
-                OnsurnameChanging(value);
-                ReportPropertyChanging("surname");
-                _surname = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("surname");
-                OnsurnameChanged();
+                OnfirstSurnameChanging(value);
+                ReportPropertyChanging("firstSurname");
+                _firstSurname = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("firstSurname");
+                OnfirstSurnameChanged();
             }
         }
-        private global::System.String _surname;
-        partial void OnsurnameChanging(global::System.String value);
-        partial void OnsurnameChanged();
+        private global::System.String _firstSurname;
+        partial void OnfirstSurnameChanging(global::System.String value);
+        partial void OnfirstSurnameChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String secondSurname
         {
@@ -513,7 +841,7 @@ namespace DataAccessLayer
             {
                 OnsecondSurnameChanging(value);
                 ReportPropertyChanging("secondSurname");
-                _secondSurname = StructuralObject.SetValidValue(value, true);
+                _secondSurname = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("secondSurname");
                 OnsecondSurnameChanged();
             }
@@ -521,6 +849,102 @@ namespace DataAccessLayer
         private global::System.String _secondSurname;
         partial void OnsecondSurnameChanging(global::System.String value);
         partial void OnsecondSurnameChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idRol
+        {
+            get
+            {
+                return _idRol;
+            }
+            set
+            {
+                OnidRolChanging(value);
+                ReportPropertyChanging("idRol");
+                _idRol = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idRol");
+                OnidRolChanged();
+            }
+        }
+        private global::System.Int32 _idRol;
+        partial void OnidRolChanging(global::System.Int32 value);
+        partial void OnidRolChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String userName
+        {
+            get
+            {
+                return _userName;
+            }
+            set
+            {
+                OnuserNameChanging(value);
+                ReportPropertyChanging("userName");
+                _userName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("userName");
+                OnuserNameChanged();
+            }
+        }
+        private global::System.String _userName;
+        partial void OnuserNameChanging(global::System.String value);
+        partial void OnuserNameChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String password
+        {
+            get
+            {
+                return _password;
+            }
+            set
+            {
+                OnpasswordChanging(value);
+                ReportPropertyChanging("password");
+                _password = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("password");
+                OnpasswordChanged();
+            }
+        }
+        private global::System.String _password;
+        partial void OnpasswordChanging(global::System.String value);
+        partial void OnpasswordChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> date
+        {
+            get
+            {
+                return _date;
+            }
+            set
+            {
+                OndateChanging(value);
+                ReportPropertyChanging("date");
+                _date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("date");
+                OndateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _date;
+        partial void OndateChanging(Nullable<global::System.DateTime> value);
+        partial void OndateChanged();
 
         #endregion
 
@@ -533,16 +957,16 @@ namespace DataAccessLayer
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SCA_DepCulturaModel", "FK_User_Permission", "Permission")]
-        public Permission Permission1
+        [EdmRelationshipNavigationPropertyAttribute("SCA_DepCulturaModel", "FK_User_Roles", "Roles")]
+        public Roles Roles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Permission>("SCA_DepCulturaModel.FK_User_Permission", "Permission").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Roles>("SCA_DepCulturaModel.FK_User_Roles", "Roles").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Permission>("SCA_DepCulturaModel.FK_User_Permission", "Permission").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Roles>("SCA_DepCulturaModel.FK_User_Roles", "Roles").Value = value;
             }
         }
         /// <summary>
@@ -550,17 +974,17 @@ namespace DataAccessLayer
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Permission> Permission1Reference
+        public EntityReference<Roles> RolesReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Permission>("SCA_DepCulturaModel.FK_User_Permission", "Permission");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Roles>("SCA_DepCulturaModel.FK_User_Roles", "Roles");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Permission>("SCA_DepCulturaModel.FK_User_Permission", "Permission", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Roles>("SCA_DepCulturaModel.FK_User_Roles", "Roles", value);
                 }
             }
         }

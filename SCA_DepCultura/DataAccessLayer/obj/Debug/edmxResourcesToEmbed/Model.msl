@@ -1,26 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="SCA_DepCulturaModelStoreContainer" CdmEntityContainer="SCA_DepCulturaEntities">
-    <EntitySetMapping Name="Permission">
-      <EntityTypeMapping TypeName="SCA_DepCulturaModel.Permission">
-        <MappingFragment StoreEntitySet="Permission">
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="idPermission" ColumnName="idPermission" />
+    <EntitySetMapping Name="Page">
+      <EntityTypeMapping TypeName="SCA_DepCulturaModel.Page">
+        <MappingFragment StoreEntitySet="Page">
+          <ScalarProperty Name="codeKey" ColumnName="codeKey" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="idPage" ColumnName="idPage" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="SCA_DepCulturaModel.Users">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="secondSurname" ColumnName="secondSurname" />
-          <ScalarProperty Name="surname" ColumnName="surname" />
-          <ScalarProperty Name="secondName" ColumnName="secondName" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="HigthDate" ColumnName="HigthDate" />
-          <ScalarProperty Name="permission" ColumnName="permission" />
+    <EntitySetMapping Name="PageRol">
+      <EntityTypeMapping TypeName="SCA_DepCulturaModel.PageRol">
+        <MappingFragment StoreEntitySet="PageRol">
+          <ScalarProperty Name="idPage" ColumnName="idPage" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="idPageRol" ColumnName="idPageRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="SCA_DepCulturaModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="SCA_DepCulturaModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="date" ColumnName="date" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="secondSurname" ColumnName="secondSurname" />
+          <ScalarProperty Name="firstSurname" ColumnName="firstSurname" />
+          <ScalarProperty Name="secondName" ColumnName="secondName" />
+          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="idUser" ColumnName="idUser" />
         </MappingFragment>
       </EntityTypeMapping>

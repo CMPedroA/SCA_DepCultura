@@ -11,16 +11,13 @@ namespace DataAccessLayer
         public LoginDAL() {
             Context = new SCA_DepCulturaEntities();      
         }
-        public string CheckUser(string user, string password) {
-            var CheckUser = from tUser in Context.Users
-                            where tUser.userName == user
-                            where tUser.password == password
-                            select new
-                            {
-                                nameUser = tUser.name + " " + tUser.surname
-                            };
-            return CheckUser.First().ToString();
-                        
+       
+        public User checkUsers(string user, string pass) {
+            var check = from TUser in Context.User
+                        where TUser.userName == user
+                        where TUser.password == pass
+                        select TUser;
+            return check.FirstOrDefault();
         }
     }
 }

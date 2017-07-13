@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessDAL.cs" />
     <Compile Include="LoginDAL.cs" />
     <Compile Include="Model.Designer.cs">
       <AutoGen>True</AutoGen>

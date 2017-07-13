@@ -4,7 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 using BussinessLogicLayer;
+using DataAccessLayer;
+using System.Collections;
 
 namespace SCA_DepCultura.Content
 {
@@ -24,11 +27,21 @@ namespace SCA_DepCultura.Content
         {
             try
             {
-                Session["UserName"] = loginBLL.CheckUser(txtUser.Text, txtPassword.Text).ToString();
+               
+               User dataUser = new User();
+               dataUser = loginBLL.checkUsers(txtUser.Text, txtPassword.Text);
+               Session["Name"] = dataUser.name.ToString() + " " + dataUser.firstSurname.ToString();
+               Session["UserName"] = dataUser.userName;
+               Session["Profile"] = dataUser.Roles.Name;
+               Hashtable has = new Hashtable();
+                has=new AccessBLL().getAccesUser(Session["Profile"].ToString());
+                Session["access"] = has;
+                
 
+               
                 if (Session["UserName"] != null)
                 {
-                    Response.Redirect("Home.aspx");
+                    Response.Redirect("~/Content/Home.aspx");
                 }
                 else
                 {

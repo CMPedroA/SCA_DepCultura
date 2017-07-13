@@ -8,10 +8,11 @@ namespace BussinessLogicLayer
 {
    public class LoginBLL
     {
-       public string CheckUser(string user, string password)
-       {
-           LoginDAL DAL = new LoginDAL();
-           return DAL.CheckUser(user,password);
+       
+       public User checkUsers(string user, string pass) {
+
+           LoginDAL DAl = new LoginDAL();
+           return DAl.checkUsers(user,pass);
        }
     }
 }

@@ -1,46 +1,101 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SCA_DepCulturaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityContainer Name="SCA_DepCulturaEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Permission" EntityType="SCA_DepCulturaModel.Permission" />
-    <EntitySet Name="Users" EntityType="SCA_DepCulturaModel.Users" />
-    <AssociationSet Name="FK_User_Permission" Association="SCA_DepCulturaModel.FK_User_Permission">
-      <End Role="Permission" EntitySet="Permission" />
-      <End Role="Users" EntitySet="Users" />
+    <EntitySet Name="Page" EntityType="SCA_DepCulturaModel.Page" />
+    <EntitySet Name="PageRol" EntityType="SCA_DepCulturaModel.PageRol" />
+    <EntitySet Name="Roles" EntityType="SCA_DepCulturaModel.Roles" />
+    <EntitySet Name="User" EntityType="SCA_DepCulturaModel.User" />
+    <AssociationSet Name="FK_PageRol_Page" Association="SCA_DepCulturaModel.FK_PageRol_Page">
+      <End Role="Page" EntitySet="Page" />
+      <End Role="PageRol" EntitySet="PageRol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PageRol_Roles" Association="SCA_DepCulturaModel.FK_PageRol_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="PageRol" EntitySet="PageRol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Roles" Association="SCA_DepCulturaModel.FK_User_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="User" EntitySet="User" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Permission">
+  <EntityType Name="Page">
     <Key>
-      <PropertyRef Name="idPermission" />
+      <PropertyRef Name="idPage" />
     </Key>
-    <Property Type="Int32" Name="idPermission" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="idPage" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="url" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="codeKey" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PageRol" Relationship="SCA_DepCulturaModel.FK_PageRol_Page" FromRole="Page" ToRole="PageRol" />
+  </EntityType>
+  <EntityType Name="PageRol">
+    <Key>
+      <PropertyRef Name="idPageRol" />
+    </Key>
+    <Property Type="Int32" Name="idPageRol" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="idRol" Nullable="false" />
+    <Property Type="Int32" Name="idPage" Nullable="false" />
+    <NavigationProperty Name="Page" Relationship="SCA_DepCulturaModel.FK_PageRol_Page" FromRole="PageRol" ToRole="Page" />
+    <NavigationProperty Name="Roles" Relationship="SCA_DepCulturaModel.FK_PageRol_Roles" FromRole="PageRol" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="idRol" />
+    </Key>
+    <Property Type="Int32" Name="idRol" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="String" Name="Name" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="Description" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Users" Relationship="SCA_DepCulturaModel.FK_User_Permission" FromRole="Permission" ToRole="Users" />
+    <NavigationProperty Name="PageRol" Relationship="SCA_DepCulturaModel.FK_PageRol_Roles" FromRole="Roles" ToRole="PageRol" />
+    <NavigationProperty Name="User" Relationship="SCA_DepCulturaModel.FK_User_Roles" FromRole="Roles" ToRole="User" />
   </EntityType>
-  <EntityType Name="Users">
+  <EntityType Name="User">
     <Key>
       <PropertyRef Name="idUser" />
     </Key>
     <Property Type="Int32" Name="idUser" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="userName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="password" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Type="Int32" Name="permission" Nullable="false" />
-    <Property Type="DateTime" Name="HigthDate" Nullable="false" />
-    <Property Type="String" Name="name" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="secondName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="surname" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="secondSurname" MaxLength="30" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Permission1" Relationship="SCA_DepCulturaModel.FK_User_Permission" FromRole="Users" ToRole="Permission" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="secondName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="firstSurname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="secondSurname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="idRol" Nullable="false" />
+    <Property Type="String" Name="userName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="date" />
+    <NavigationProperty Name="Roles" Relationship="SCA_DepCulturaModel.FK_User_Roles" FromRole="User" ToRole="Roles" />
   </EntityType>
-  <Association Name="FK_User_Permission">
-    <End Type="SCA_DepCulturaModel.Permission" Role="Permission" Multiplicity="1" />
-    <End Type="SCA_DepCulturaModel.Users" Role="Users" Multiplicity="*" />
+  <Association Name="FK_PageRol_Page">
+    <End Type="SCA_DepCulturaModel.Page" Role="Page" Multiplicity="1" />
+    <End Type="SCA_DepCulturaModel.PageRol" Role="PageRol" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Permission">
-        <PropertyRef Name="idPermission" />
+      <Principal Role="Page">
+        <PropertyRef Name="idPage" />
       </Principal>
-      <Dependent Role="Users">
-        <PropertyRef Name="permission" />
+      <Dependent Role="PageRol">
+        <PropertyRef Name="idPage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PageRol_Roles">
+    <End Type="SCA_DepCulturaModel.Roles" Role="Roles" Multiplicity="1" />
+    <End Type="SCA_DepCulturaModel.PageRol" Role="PageRol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="PageRol">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Roles">
+    <End Type="SCA_DepCulturaModel.Roles" Role="Roles" Multiplicity="1" />
+    <End Type="SCA_DepCulturaModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="idRol" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
